@@ -1,12 +1,15 @@
 package com.unipi.ZooForUnipiAlexhs;
 
-public abstract class Animal {
+import java.io.Serializable;
+
+public abstract class Animal implements Serializable {
     private String code;
     private String name;
     private int avgWeight;
 
     public Animal(String code, String name, int avgWeight) {
         this.code = code;
+        System.out.println("Animal with code " + code + ", created!");
         this.name = name;
         this.avgWeight = avgWeight;
     }

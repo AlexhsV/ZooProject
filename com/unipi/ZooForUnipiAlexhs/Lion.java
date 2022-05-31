@@ -1,6 +1,8 @@
 package com.unipi.ZooForUnipiAlexhs;
 
-public class Lion extends Animal implements AnimalOperations{
+import java.io.Serializable;
+
+public class Lion extends Animal implements AnimalOperations, Serializable {
     private static final String category = "Mammal";
     private static final int avgMaxAge = 20;
     private boolean king;
@@ -25,7 +27,7 @@ public class Lion extends Animal implements AnimalOperations{
 
     @Override
     public String toString() {
-        return "lion{" + super.toString() +
+        return "Lion{" + super.toString() +
                 ", king=" + king +
                 '}';
     }
