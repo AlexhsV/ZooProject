@@ -2,43 +2,32 @@ package com.unipi.ZooForUnipiAlexhs;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class GUI implements ActionListener{
+public class GUI {
 
-    private int count = 0;
-    private JLabel label;
-    private JFrame frame;
-    private JPanel panel;
-
-    public GUI(){
-
-        frame = new JFrame();
-
-        JButton button = new JButton("Click me");
-        button.addActionListener(this);
-
-        label = new JLabel("Number of clicks: 0");
-
-        panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(button);
-        panel.add(label);
-
-        frame.setLocationRelativeTo(null);
-        frame.add(panel, BorderLayout.CENTER);
+    public GUI() {
+        JFrame frame = new JFrame();
+        frame.setTitle("Admin - Dashboard");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Our GUI");
-        frame.pack();
+        frame.setResizable(false);
+        frame.setSize(1280,720);
         frame.setVisible(true);
-    }
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        frame.setIconImage(logo.getImage());
+        frame.getContentPane().setBackground(Color.white);
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number of clicks: " + count);
+
+        JLabel label = new JLabel();
+        label.setText("Welcome Admin!");
+        frame.add(label);
+
+        ImageIcon image = new ImageIcon("theZoo.png");
+        label.setIcon(image);
+
+
     }
 }
+
+

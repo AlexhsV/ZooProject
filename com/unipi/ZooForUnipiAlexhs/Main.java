@@ -1,12 +1,27 @@
 package com.unipi.ZooForUnipiAlexhs;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        new GUI();
+        //new Form1();
+
+        JFrame frame = new JFrame();
+        frame.setTitle("Admin - Dashboard");
+        frame.setContentPane(new Form1().mainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(1280,720);
+        frame.setVisible(true);
+        frame.pack();
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        frame.setIconImage(logo.getImage());
+        //frame.getContentPane().setBackground(Color.white);
+
 
         loop: while (true) {
             int selection;
