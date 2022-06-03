@@ -5,8 +5,8 @@ public class Alligator extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 90;
     private int victims;
 
-    public Alligator(String code, String name, int avgWeight, int victims) {
-        super(code, name, avgWeight);
+    public Alligator(String code, String name, int weight, int victims) {
+        super(code, name, weight);
         this.victims = victims;
     }
 

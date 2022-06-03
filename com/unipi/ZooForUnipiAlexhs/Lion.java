@@ -7,8 +7,8 @@ public class Lion extends Animal implements AnimalOperations, Serializable {
     private static final int avgMaxAge = 20;
     private boolean king;
 
-    public Lion(String code, String name, int avgWeight, boolean king) {
-        super(code, name, avgWeight);
+    public Lion(String code, String name, int weight, boolean king) {
+        super(code, name, weight);
         this.king = king;
     }
 

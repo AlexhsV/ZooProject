@@ -5,8 +5,8 @@ public class Lizard extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 15;
     private float tailLength;
 
-    public Lizard(String code, String name, int avgWeight, float tailLength) {
-        super(code, name, avgWeight);
+    public Lizard(String code, String name, int weight, float tailLength) {
+        super(code, name, weight);
         this.tailLength = tailLength;
     }
 

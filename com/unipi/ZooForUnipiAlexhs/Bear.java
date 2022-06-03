@@ -5,8 +5,8 @@ public class Bear extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 40;
     private String region;
 
-    public Bear(String code, String name, int avgWeight, String region) {
-        super(code, name, avgWeight);
+    public Bear(String code, String name, int weight, String region) {
+        super(code, name, weight);
         this.region = region;
     }
 

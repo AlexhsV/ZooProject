@@ -1,25 +1,25 @@
-package com.unipi.ZooForUnipiAlexhs;
+/*package com.unipi.ZooForUnipiAlexhs;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class ZooKeeper {
+public abstract class Form1 implements ZooOperations{
 
-    private static ArrayList<Animal> animals = new ArrayList<Animal>();
+    //private static ArrayList<Animal> animals = new ArrayList<Animal>();
 
-    public static ArrayList<Animal> getAnimals() {
-        return animals;
-    }
+    //public static ArrayList<Animal> getAnimals() {
+        //return animals;
+   // }
 
-    private static int alligators;  //counter of each animal, to create the unique code of each object
-    private static int bears;       //static needed so they can be referenced from the static method
-    private static int elephants;
-    private static int frogs;
-    private static int giraffes;
-    private static int gorillas;
-    private static int lions;
-    private static int lizards;
+    protected static int alligators;  //counter of each animal, to create the unique code of each object
+    protected static int bears;       //static needed so they can be referenced from the static method
+    protected static int elephants;     //protected made for the gui
+    protected static int frogs;
+    protected static int giraffes;
+    protected static int gorillas;
+    protected static int lions;
+    protected static int lizards;
 
 
     static void addAnimals(Scanner input) {    //parsing the object input of class Scanner, created in the main function
@@ -49,7 +49,7 @@ public abstract class ZooKeeper {
 
             alligators+=1;
             String code = String.format("AL%03d", alligators);
-            ZooKeeper.animals.add(new Alligator(code, name, weight, victims));
+            Form1.animals.add(new Alligator(code, name, weight, victims));
 
         } else if (choice == 2) {
 
@@ -58,7 +58,7 @@ public abstract class ZooKeeper {
 
             bears+=1;
             String code = String.format("BE%03d", bears);
-            ZooKeeper.animals.add(new Bear(code, name, weight, region));
+            Form1.animals.add(new Bear(code, name, weight, region));
 
         } else if (choice == 3) {
 
@@ -67,7 +67,7 @@ public abstract class ZooKeeper {
 
             elephants+=1;
             String code = String.format("EL%03d", elephants);
-            ZooKeeper.animals.add(new Elephant(code, name, weight, trunkLength));
+            Form1.animals.add(new Elephant(code, name, weight, trunkLength));
 
         } else if (choice == 4) {
 
@@ -76,7 +76,7 @@ public abstract class ZooKeeper {
 
             frogs+=1;
             String code = String.format("FR%03d", frogs);
-            ZooKeeper.animals.add(new Frog(code, name, weight, poisonous));
+            Form1.animals.add(new Frog(code, name, weight, poisonous));
 
 
         } else if (choice == 5) {
@@ -86,7 +86,7 @@ public abstract class ZooKeeper {
 
             giraffes+=1;
             String code = String.format("GI%03d", giraffes);
-            ZooKeeper.animals.add(new Giraffe(code, name, weight, neckLength));
+            Form1.animals.add(new Giraffe(code, name, weight, neckLength));
 
         } else if (choice == 6) {
 
@@ -95,7 +95,7 @@ public abstract class ZooKeeper {
 
             gorillas+=1;
             String code = String.format("GO%03d", gorillas);
-            ZooKeeper.animals.add(new Gorilla(code, name, weight, strength));
+            Form1.animals.add(new Gorilla(code, name, weight, strength));
 
 
         } else if (choice == 7) {
@@ -105,7 +105,7 @@ public abstract class ZooKeeper {
 
             lions+=1;
             String code = String.format("LIO%03d", lions);
-            ZooKeeper.animals.add(new Lion(code, name, weight, king));
+            Form1.animals.add(new Lion(code, name, weight, king));
 
 
         } else if (choice == 8) {
@@ -115,7 +115,7 @@ public abstract class ZooKeeper {
 
             lizards+=1;
             String code = String.format("LIZ%03d", lizards);
-            ZooKeeper.animals.add(new Lizard(code, name, weight, tailLength));
+            Form1.animals.add(new Lizard(code, name, weight, tailLength));
 
 
         }
@@ -128,7 +128,7 @@ public abstract class ZooKeeper {
         String animalToSearch = input.next();
 
         boolean exists = false;
-        for (var animal: ZooKeeper.getAnimals()) {
+        for (var animal: Form1.getAnimals()) {
             if(animal.getName() != null && animal.getName().contains(animalToSearch)) {
                 System.out.println(animalToSearch + ", exists and here are it's characteristics: " + animal);
                 exists = true;
@@ -149,7 +149,7 @@ public abstract class ZooKeeper {
 
         int currentPosition = 0;
         boolean exists = false;
-        for (var animal: ZooKeeper.getAnimals()) {
+        for (var animal: Form1.getAnimals()) {
             if(animal.getCode() != null && animal.getCode().contains(codeToSearch)) {
                 System.out.println(codeToSearch + ", exists and here are it's characteristics: " + animal);
                 exists = true;
@@ -184,7 +184,7 @@ public abstract class ZooKeeper {
                 case 3 -> {
                     System.out.print("Enter new average weight for the animal: ");
                     int weight = input.nextInt();
-                    animals.get(position).setAvgWeight(weight);
+                    animals.get(position).setWeight(weight);
                 }
                 case 4 -> {
                     if (animals.get(position) instanceof Alligator) {
@@ -238,7 +238,7 @@ public abstract class ZooKeeper {
     static void removeByCode(Scanner input){
         int position = searchByCode(input);
         if (position != -1) {
-            ZooKeeper.animals.remove(position);
+            Form1.animals.remove(position);
             System.out.println("The animal has been removed");
         }
 
@@ -262,7 +262,7 @@ public abstract class ZooKeeper {
 }
 
 
-
+*/
 
 
 

@@ -5,13 +5,13 @@ import java.io.Serializable;
 public abstract class Animal implements Serializable {
     private String code;
     private String name;
-    private int avgWeight;
+    private int weight;
 
-    public Animal(String code, String name, int avgWeight) {
+    public Animal(String code, String name, int weight) {
         this.code = code;
         System.out.println("Animal with code " + code + ", created!");
         this.name = name;
-        this.avgWeight = avgWeight;
+        this.weight = weight;
     }
 
     public String getCode() {
@@ -30,12 +30,12 @@ public abstract class Animal implements Serializable {
         this.name = name;
     }
 
-    public int getAvgWeight() {
-        return avgWeight;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setAvgWeight(int avgWeight) {
-        this.avgWeight = avgWeight;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
 
@@ -43,6 +43,6 @@ public abstract class Animal implements Serializable {
     public String toString() {
         return "code=" + code +
                 ", name='" + name + '\'' +
-                ", avgWeight=" + avgWeight ;
+                ", weight=" + weight ;
     }
 }

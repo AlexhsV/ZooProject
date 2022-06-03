@@ -5,8 +5,8 @@ public class Frog extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 15;
     private boolean poisonous;
 
-    public Frog(String code, String name, int avgWeight, boolean poisonous) {
-        super(code, name, avgWeight);
+    public Frog(String code, String name, int weight, boolean poisonous) {
+        super(code, name, weight);
         this.poisonous = poisonous;
     }
 
