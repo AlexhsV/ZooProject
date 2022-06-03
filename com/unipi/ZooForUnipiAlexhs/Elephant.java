@@ -5,8 +5,8 @@ public class Elephant extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 35;
     private float trunkLength;
 
-    public Elephant(String code, String name, int weight, float trunkLength) {
-        super(code, name, weight);
+    public Elephant(String id, String name, int weight, float trunkLength) {
+        super(id, name, weight);
         this.trunkLength = trunkLength;
     }
 

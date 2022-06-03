@@ -1,268 +1,233 @@
-/*package com.unipi.ZooForUnipiAlexhs;
+package com.unipi.ZooForUnipiAlexhs;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public abstract class Form1 implements ZooOperations{
+public abstract class ZooKeeper{
 
-    //private static ArrayList<Animal> animals = new ArrayList<Animal>();
+    private static ArrayList<Animal> animals = new ArrayList<>();
 
-    //public static ArrayList<Animal> getAnimals() {
-        //return animals;
-   // }
+    public static ArrayList<Animal> getAnimals() {
+        return animals;
+    }
 
-    protected static int alligators;  //counter of each animal, to create the unique code of each object
-    protected static int bears;       //static needed so they can be referenced from the static method
-    protected static int elephants;     //protected made for the gui
-    protected static int frogs;
-    protected static int giraffes;
-    protected static int gorillas;
-    protected static int lions;
-    protected static int lizards;
+    private static int alligators;  //counter of each animal, to create the unique id of each object
+    private static int bears;       //static needed so they can be referenced from the static methods
+    private static int elephants;
+    private static int frogs;
+    private static int giraffes;
+    private static int gorillas;
+    private static int lions;
+    private static int lizards;
 
+     protected static void addAnimals(){
+        String[] Animals = {"Alligator", "Bear", "Elephant","Frog","Giraffe","Gorilla","Lion","Lizard"};
+        String choice = (String) JOptionPane.showInputDialog(null, "Which animal do you want to add in the zoo? :\n", "Adding an animal", JOptionPane.PLAIN_MESSAGE, null, Animals, "Alligator");
 
-    static void addAnimals(Scanner input) {    //parsing the object input of class Scanner, created in the main function
-        System.out.println("Which animal do you want to add in the zoo?");
-        System.out.println("-------------------------\n");
-        System.out.println("1 - Alligator");
-        System.out.println("2 - Bear");
-        System.out.println("3 - Elephant");
-        System.out.println("4 - Frog");
-        System.out.println("5 - Giraffe");
-        System.out.println("6 - Gorilla");
-        System.out.println("7 - Lion");
-        System.out.println("8 - Lizard");
-        int choice = input.nextInt();
+        int weight= Integer.parseInt(JOptionPane.showInputDialog("Give weight  (hint: int numbers only!): "));
 
-        System.out.println("Give weight:");
-        int weight = input.nextInt();
+        String name= JOptionPane.showInputDialog("Give name  (hint: String only!): ");
 
-        System.out.println("Give name:");
-        String name = input.next();
+        switch (choice) {
+            case "Alligator" -> {
 
+                int victims = Integer.parseInt(JOptionPane.showInputDialog("Give victims  (hint: int numbers only!): "));
+                alligators += 1;    //+1 alligators have been created
+                String id = String.format("AL%03d", alligators);  //unique id for each alligator generated here
+                ZooKeeper.animals.add(new Alligator(id, name, weight, victims));
 
-        if (choice == 1) {
+            }
+            case "Bear" -> {
 
-            System.out.println("Give victims:");
-            int victims = input.nextInt();
+                String region = JOptionPane.showInputDialog("Give region  (hint: String only!): ");
 
-            alligators+=1;
-            String code = String.format("AL%03d", alligators);
-            Form1.animals.add(new Alligator(code, name, weight, victims));
+                bears += 1;
+                String id = String.format("BE%03d", bears);
+                ZooKeeper.animals.add(new Bear(id, name, weight, region));
 
-        } else if (choice == 2) {
+            }
+            case "Elephant" -> {
 
-            System.out.println("Give region:");
-            String region = input.next();
+                float trunkLength = Float.parseFloat(JOptionPane.showInputDialog("Give length of the trunk:  (hint: float/int only!):"));
 
-            bears+=1;
-            String code = String.format("BE%03d", bears);
-            Form1.animals.add(new Bear(code, name, weight, region));
+                elephants += 1;
+                String id = String.format("EL%03d", elephants);
+                ZooKeeper.animals.add(new Elephant(id, name, weight, trunkLength));
 
-        } else if (choice == 3) {
+            }
+            case "Frog" -> {
 
-            System.out.println("Give length of the trunk:");
-            float trunkLength = input.nextFloat();
+                boolean poisonous = Boolean.parseBoolean(JOptionPane.showInputDialog("Is it poisonous?  (hint: true or false only!): "));
 
-            elephants+=1;
-            String code = String.format("EL%03d", elephants);
-            Form1.animals.add(new Elephant(code, name, weight, trunkLength));
-
-        } else if (choice == 4) {
-
-            System.out.println("Is it poisonous? (true or false):");
-            boolean poisonous = input.nextBoolean();
-
-            frogs+=1;
-            String code = String.format("FR%03d", frogs);
-            Form1.animals.add(new Frog(code, name, weight, poisonous));
+                frogs += 1;
+                String id = String.format("FR%03d", frogs);
+                ZooKeeper.animals.add(new Frog(id, name, weight, poisonous));
 
 
-        } else if (choice == 5) {
+            }
+            case "Giraffe" -> {
 
-            System.out.println("Give length of the neck:");
-            float neckLength = input.nextFloat();
+                float neckLength = Float.parseFloat(JOptionPane.showInputDialog("Give length of the neck:  (hint: float/int only!): "));
 
-            giraffes+=1;
-            String code = String.format("GI%03d", giraffes);
-            Form1.animals.add(new Giraffe(code, name, weight, neckLength));
+                giraffes += 1;
+                String id = String.format("GI%03d", giraffes);
+                ZooKeeper.animals.add(new Giraffe(id, name, weight, neckLength));
 
-        } else if (choice == 6) {
+            }
+            case "Gorilla" -> {
 
-            System.out.println("How strong is it? (1-10)");
-            int strength = input.nextInt();
+                int strength = Integer.parseInt(JOptionPane.showInputDialog("How strong is it?  (hint: int only 1-10!): "));
 
-            gorillas+=1;
-            String code = String.format("GO%03d", gorillas);
-            Form1.animals.add(new Gorilla(code, name, weight, strength));
-
-
-        } else if (choice == 7) {
-
-            System.out.println("Is it the king? (true or false):");
-            boolean king = input.nextBoolean();
-
-            lions+=1;
-            String code = String.format("LIO%03d", lions);
-            Form1.animals.add(new Lion(code, name, weight, king));
+                gorillas += 1;
+                String id = String.format("GO%03d", gorillas);
+                ZooKeeper.animals.add(new Gorilla(id, name, weight, strength));
 
 
-        } else if (choice == 8) {
+            }
+            case "Lion" -> {
 
-            System.out.println("Give length of the tail:");
-            float tailLength = input.nextFloat();
+                boolean king = Boolean.parseBoolean(JOptionPane.showInputDialog("Is it the king?  (hint: true or false only!): "));
 
-            lizards+=1;
-            String code = String.format("LIZ%03d", lizards);
-            Form1.animals.add(new Lizard(code, name, weight, tailLength));
+                lions += 1;
+                String id = String.format("LIO%03d", lions);
+                ZooKeeper.animals.add(new Lion(id, name, weight, king));
 
 
+            }
+            case "Lizard" -> {
+
+                float tailLength = Float.parseFloat((JOptionPane.showInputDialog("Give length of the tail  (hint: float/int only!)::")));
+
+                lizards += 1;
+                String id = String.format("LIZ%03d", lizards);
+                ZooKeeper.animals.add(new Lizard(id, name, weight, tailLength));
+            }
         }
     }
 
 
 
-    static void searchByName(Scanner input){
-        System.out.println("Enter name of the animal you want to search for: ");
-        String animalToSearch = input.next();
+    protected static void searchByName(){
+        String animalToSearch= JOptionPane.showInputDialog("Enter name of the animal you want to search for: ");
 
         boolean exists = false;
-        for (var animal: Form1.getAnimals()) {
+        for (var animal: ZooKeeper.animals) {   //search the arraylist animals | var holds every time the type of the object
             if(animal.getName() != null && animal.getName().contains(animalToSearch)) {
-                System.out.println(animalToSearch + ", exists and here are it's characteristics: " + animal);
+                JOptionPane.showMessageDialog(null, animalToSearch + ", exists and here are it's characteristics: " + animal);
                 exists = true;
                 break;
             }
 
         }
         if (!exists)
-            System.out.println(animalToSearch + ", does not exist ");
-
+            JOptionPane.showMessageDialog(null, animalToSearch + ", does not exist ");
     }
 
 
-
-    static int searchByCode(Scanner input) {
-        System.out.println("Enter code of the animal you want to search for: ");
-        String codeToSearch = input.next(); //Integer needed because .contains does not work with primitives
+    protected static int searchById() {
+        String idToSearch= JOptionPane.showInputDialog("Enter id of the animal you want to search for: ");
 
         int currentPosition = 0;
-        boolean exists = false;
-        for (var animal: Form1.getAnimals()) {
-            if(animal.getCode() != null && animal.getCode().contains(codeToSearch)) {
-                System.out.println(codeToSearch + ", exists and here are it's characteristics: " + animal);
-                exists = true;
+        for (var animal: ZooKeeper.animals) {
+            if(animal.getid() != null && animal.getid().contains(idToSearch)) {
+                JOptionPane.showMessageDialog(null, idToSearch + ", exists and here are it's characteristics: " + animal);
                 return currentPosition;
             }
 
             currentPosition++;
         }
-        if (!exists)
-            System.out.println(codeToSearch + ", does not exist ");
+
+        JOptionPane.showMessageDialog(null, idToSearch + ", does not exist ");
 
         return -1;  //return -1 if it does not exist
     }
 
 
-    static void editbyCode(Scanner input) {
-        int position = searchByCode(input);
+
+    protected static void editById() {
+        int position = searchById();
         if (position != -1) {
-            System.out.println("Which characteristic do you want to edit? \n" + "1-Name " + "2-Code " + "3-Weight " + "4-Special/Last Characteristic");
-            int characteristic = input.nextInt();
+
+            String[] characteristics = {"Name", "id", "Weight","Special/Last Characteristic"};
+            String characteristic = (String) JOptionPane.showInputDialog(null, "Which characteristic do you want to edit? :\n", "Edit a characteristic", JOptionPane.PLAIN_MESSAGE, null, characteristics, "Name");
+
             switch (characteristic) {
-                case 1 -> {
-                    System.out.print("Enter new name for the animal: ");
-                    String name = input.next();
+                case "Name":
+                    String name = JOptionPane.showInputDialog("Enter new name for the animal: ");
                     animals.get(position).setName(name);
-                }
-                case 2 -> {
-                    System.out.print("Enter new code for the animal: ");
-                    String code = input.next();
-                    animals.get(position).setCode(code);
-                }
-                case 3 -> {
-                    System.out.print("Enter new average weight for the animal: ");
-                    int weight = input.nextInt();
+                    break;
+                case "id":
+                    String id = JOptionPane.showInputDialog("Enter new id for the animal: ");
+                    animals.get(position).setid(id);
+                    break;
+                case "Weight":
+                    int weight = Integer.parseInt(JOptionPane.showInputDialog("Enter new weight for the animal: "));
                     animals.get(position).setWeight(weight);
-                }
-                case 4 -> {
+                    break;
+                case "Special/Last Characteristic":
                     if (animals.get(position) instanceof Alligator) {
                         System.out.print("Enter new number of victims: ");
-                        int victims = input.nextInt();
+                        int victims = Integer.parseInt(JOptionPane.showInputDialog("Enter new number for victims: "));
                         ((Alligator) animals.get(position)).setVictims(victims);
-                    }
-                    else if (animals.get(position) instanceof Bear) {
-                        System.out.print("Enter new region: ");
-                        String region = input.next();
+                    } else if (animals.get(position) instanceof Bear) {
+                        String region = JOptionPane.showInputDialog("Give new region: ");
                         ((Bear) animals.get(position)).setRegion(region);
-                    }
-                    else if (animals.get(position) instanceof Elephant) {
-                        System.out.print("Enter new trunk length: ");
-                        float trunkLength = input.nextFloat();
+                    } else if (animals.get(position) instanceof Elephant) {
+                        float trunkLength = Float.parseFloat(JOptionPane.showInputDialog("Give length of the trunk: "));
                         ((Elephant) animals.get(position)).setTrunkLength(trunkLength);
-                    }
-                    else if (animals.get(position) instanceof Frog) {
-                        System.out.print("Enter new status of poisonous (true or false): ");
-                        boolean poisonous = input.nextBoolean();
+                    } else if (animals.get(position) instanceof Frog) {
+                        boolean poisonous = Boolean.parseBoolean(JOptionPane.showInputDialog("Is it poisonous? (true or false): "));
                         ((Frog) animals.get(position)).setPoisonous(poisonous);
-                    }
-                    else if (animals.get(position) instanceof Giraffe) {
-                        System.out.print("Enter new neck length: ");
-                        float neckLength = input.nextFloat();
+                    } else if (animals.get(position) instanceof Giraffe) {
+                        float neckLength = Float.parseFloat(JOptionPane.showInputDialog("Give length of the neck: "));
                         ((Giraffe) animals.get(position)).setNeckLength(neckLength);
-                    }
-                    else if (animals.get(position) instanceof Gorilla) {
-                        System.out.print("Enter new number of strength: ");
-                        int strength = input.nextInt();
+                    } else if (animals.get(position) instanceof Gorilla) {
+                        int strength = Integer.parseInt(JOptionPane.showInputDialog("How strong is it? (1-10): "));
                         ((Gorilla) animals.get(position)).setStrength(strength);
-                    }
-                    else if (animals.get(position) instanceof Lion) {
-                        System.out.print("Is it still the king? (true or false): ");
-                        boolean king = input.nextBoolean();
+                    } else if (animals.get(position) instanceof Lion) {
+                        boolean king = Boolean.parseBoolean(JOptionPane.showInputDialog("Is it the king? (true or false): "));
                         ((Lion) animals.get(position)).setKing(king);
-                    }
-                    else {
-                        System.out.print("Enter new tail length: ");
-                        float tailLength = input.nextFloat();
+                    } else {
+                        float tailLength = Float.parseFloat((JOptionPane.showInputDialog("Give length of the tail:")));
                         ((Lizard) animals.get(position)).setTailLength(tailLength);
                     }
-
-                }
-
+                    break;
             }
-
         }
     }
 
-    static void removeByCode(Scanner input){
-        int position = searchByCode(input);
+
+
+    protected static void removeById(){
+        int position = searchById();
         if (position != -1) {
-            Form1.animals.remove(position);
-            System.out.println("The animal has been removed");
+            ZooKeeper.animals.remove(position);
+            JOptionPane.showMessageDialog(null,  "Exists and here are it's characteristics: ");
         }
-
     }
 
-    static void saveData(){
+
+    //serialization
+    protected static void saveData(){
         File f = new File("animalsData.bin");
 
         try(ObjectOutputStream os = new ObjectOutputStream(
                 new BufferedOutputStream(
                         new FileOutputStream(f)))) {
-            os.writeObject(String.valueOf(animals));
+            os.writeObject(animals);
         }
         catch (IOException e) {
-            System.err.println(e);
+            System.err.println(e);  //outputs the error
         }
 
-
     }
+
 
 }
 
 
-*/
+
 
 
 

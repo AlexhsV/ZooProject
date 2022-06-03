@@ -2,24 +2,25 @@ package com.unipi.ZooForUnipiAlexhs;
 
 import java.io.Serializable;
 
-public abstract class Animal implements Serializable {
-    private String code;
+public abstract class Animal implements Serializable { //Serializable interface needed for serialization of the arraylist "animals"
+    private String id;
     private String name;
     private int weight;
 
-    public Animal(String code, String name, int weight) {
-        this.code = code;
-        System.out.println("Animal with code " + code + ", created!");
+    public Animal(String id, String name, int weight) {
+        this.id = id;
+        System.out.println("Animal with id " + id + ", created!");
         this.name = name;
         this.weight = weight;
     }
 
-    public String getCode() {
-        return code;
+    //getters and setters for the common characteristics
+    public String getid() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setid(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,7 +42,7 @@ public abstract class Animal implements Serializable {
 
     @Override
     public String toString() {
-        return "code=" + code +
+        return "id=" + id +
                 ", name='" + name + '\'' +
                 ", weight=" + weight ;
     }

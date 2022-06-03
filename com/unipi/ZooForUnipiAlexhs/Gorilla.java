@@ -5,8 +5,8 @@ public class Gorilla extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 55;
     private int strength;
 
-    public Gorilla(String code, String name, int weight, int strength) {
-        super(code, name, weight);
+    public Gorilla(String id, String name, int weight, int strength) {
+        super(id, name, weight);
         this.strength = strength;
     }
 

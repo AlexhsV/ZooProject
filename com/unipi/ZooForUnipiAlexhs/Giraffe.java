@@ -5,8 +5,8 @@ public class Giraffe extends Animal implements AnimalOperations{
     private static final int avgMaxAge = 25;
     private float neckLength;
 
-    public Giraffe(String code, String name, int weight, float neckLength) {
-        super(code, name, weight);
+    public Giraffe(String id, String name, int weight, float neckLength) {
+        super(id, name, weight);
         this.neckLength = neckLength;
     }
 

@@ -1,12 +1,12 @@
 package com.unipi.ZooForUnipiAlexhs;
 
 public class Alligator extends Animal implements AnimalOperations{
-    private static final String category = "Reptile";
+    private static final String category = "Reptile";      //can not change
     private static final int avgMaxAge = 90;
     private int victims;
 
-    public Alligator(String code, String name, int weight, int victims) {
-        super(code, name, weight);
+    public Alligator(String id, String name, int weight, int victims) {
+        super(id, name, weight);  //calling the Animal constructor for id,name,weight
         this.victims = victims;
     }
 
@@ -23,7 +23,7 @@ public class Alligator extends Animal implements AnimalOperations{
         System.out.println("The alligator says: Grr Grr Grr!");
     }
 
-    @Override
+    @Override   //toString Override so the objects can be printed
     public String toString() {
         return "Alligator{" + super.toString() +
                 ", victims=" + victims +
