@@ -1,6 +1,6 @@
 # ZooProject
 
-An admin dashboard for zoo management.
+An admin dashboard for Zoo management.
 
 In the code there is an abstract class Animal, which contains the basic characteristics of an animal
 such as name and weight. This class is inherited from classes
